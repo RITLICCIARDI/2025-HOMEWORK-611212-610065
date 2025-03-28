@@ -1,9 +1,10 @@
 package testFunzioni;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class PartitaTest {
+class testStanza {
 
 	@Test
 	void test() {
