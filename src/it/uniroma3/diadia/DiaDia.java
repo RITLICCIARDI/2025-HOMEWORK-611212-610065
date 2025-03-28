@@ -56,8 +56,12 @@ public class DiaDia {
 	 */
 	private boolean processaIstruzione(String istruzione) {	//PROCESSA SINGOLA ISTRUZIONE MODELLATA DA QUESTA STRINGA
 		Comando comandoDaEseguire = new Comando(istruzione); 
+<<<<<<< Updated upstream
 		if(comandoDaEseguire.getNome()!=null)
 			
+=======
+		if(comandoDaEseguire.getNome()!=null) 
+>>>>>>> Stashed changes
 			if (comandoDaEseguire.getNome().equals("fine")) {	//NOME COMANDO
 				this.fine(); 
 				return true;

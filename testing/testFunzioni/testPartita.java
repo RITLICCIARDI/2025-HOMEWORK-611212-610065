@@ -1,4 +1,5 @@
 package testFunzioni;
+<<<<<<< Updated upstream
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -32,5 +33,9 @@ class testPartita {
 	}
 	
 	
+=======
+
+public class testPartita {
+>>>>>>> Stashed changes
 
 }
