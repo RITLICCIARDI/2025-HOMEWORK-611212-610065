@@ -75,7 +75,7 @@ public class DiaDia {
 				}
 				else{
 					System.out.println("Hai perso!!");
-				};
+				}
 			}
 		return false;
 	}   
