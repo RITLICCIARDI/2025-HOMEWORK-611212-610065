@@ -51,5 +51,18 @@ class testStanza {
 	}
 	
 //FATTI DAL PROF: imposta stanza adiacente, Has attrezzo
-	
+	/*
+	 * private Stanza stanza;
+	 * private Attrezzo spada;
+	 * 
+	 * 
+	 * @BeforeEach
+	 * void setUp()throws Exception{
+	 * 		this.stanza = new Stanza("N11");
+	 * 		this.spada = new Attrezzo("spada", 10);
+	 * }
+	 * 
+	 * void hasAttrezzo(){
+	 * 		assertFalse(this.stanza.hasAttrezzo("spada"));
+	 */
 }
