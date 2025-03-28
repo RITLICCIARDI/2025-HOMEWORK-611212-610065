@@ -62,7 +62,7 @@ class testStanza {
 	 * 		this.spada = new Attrezzo("spada", 10);
 	 * }
 	 * 
-	 * void hasAttrezzo(){
+	 * void asAttrezzo(){
 	 * 		assertFalse(this.stanza.hasAttrezzo("spada"));
 	 */
 }
