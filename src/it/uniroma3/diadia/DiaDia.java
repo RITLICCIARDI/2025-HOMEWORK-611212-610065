@@ -56,21 +56,21 @@ public class DiaDia {
 	 */
 	private boolean processaIstruzione(String istruzione) {	//PROCESSA SINGOLA ISTRUZIONE MODELLATA DA QUESTA STRINGA
 		Comando comandoDaEseguire = new Comando(istruzione); 
-
-		if (comandoDaEseguire.getNome().equals("fine")) {	//NOME COMANDO
-			this.fine(); 
-			return true;
-		} else if (comandoDaEseguire.getNome().equals("vai"))
-			this.vai(comandoDaEseguire.getParametro());
-		else if (comandoDaEseguire.getNome().equals("aiuto"))
-			this.aiuto();
-		else
-			System.out.println("Comando sconosciuto");
-		if (this.partita.vinta()) {
-			System.out.println("Hai vinto!");
-			return true;
-		} else
-			return false;
+		if(comandoDaEseguire.getNome()!=null)
+			if (comandoDaEseguire.getNome().equals("fine")) {	//NOME COMANDO
+				this.fine(); 
+				return true;
+			} else if (comandoDaEseguire.getNome().equals("vai"))
+				this.vai(comandoDaEseguire.getParametro());
+			else if (comandoDaEseguire.getNome().equals("aiuto"))
+				this.aiuto();
+			else
+				System.out.println("Comando sconosciuto");
+			if (this.partita.vinta()) {
+				System.out.println("Hai vinto!");
+				return true;
+			} else
+				return false;
 	}   
 
 	// implementazioni dei comandi dell'utente:
