@@ -121,7 +121,7 @@ public class Stanza {
 	*/
     public String toString() {
     	StringBuilder risultato = new StringBuilder();
-    	risultato.append("Stanza: " + this.nome);
+    	risultato.append("Stanza: " +this.nome);
     	risultato.append("\nUscite: ");
     	for (String direzione : this.direzioni)
     		if (direzione!=null)
@@ -129,6 +129,7 @@ public class Stanza {
     	risultato.append("\nAttrezzi nella stanza: ");
     	for (Attrezzo attrezzo : this.attrezzi) {
     		if(attrezzo!=null) {
+    			
     		risultato.append(attrezzo.toString()+" ");
     		}
     	}
@@ -156,13 +157,13 @@ public class Stanza {
      * 		   null se l'attrezzo non e' presente.
 	 */
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
-		Attrezzo attrezzoCercato;
-		attrezzoCercato = null;
+		
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
-				attrezzoCercato = attrezzo;
+			if (attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo)) {
+				return attrezzo;
+			}
 		}
-		return attrezzoCercato;	
+		return null;	
 	}
 
 	/**
