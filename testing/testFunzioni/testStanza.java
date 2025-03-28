@@ -50,5 +50,6 @@ class testStanza {
 		
 	}
 	
-
+//FATTI DAL PROF: imposta stanza adiacente, Has attrezzo
+	
 }
