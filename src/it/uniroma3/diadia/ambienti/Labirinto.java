@@ -1,5 +1,8 @@
 package it.uniroma3.diadia.ambienti;
 
-public class Labirinto {
+//
 
+public class Labirinto {
+	
+	
 }

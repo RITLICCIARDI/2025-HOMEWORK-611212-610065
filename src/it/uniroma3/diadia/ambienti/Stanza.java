@@ -127,11 +127,9 @@ public class Stanza {
     		if (direzione!=null)
     			risultato.append(" " + direzione);
     	risultato.append("\nAttrezzi nella stanza: ");
-    	for (Attrezzo attrezzo : this.attrezzi) {
-    		if(attrezzo!=null) {
-    			
-    		risultato.append(attrezzo.toString()+" ");
-    		}
+    	for (int i=0; i<this.numeroAttrezzi; i++) {
+    		
+    		risultato.append(this.attrezzi[i].toString()+" ");
     	}
     	return risultato.toString();
     }
