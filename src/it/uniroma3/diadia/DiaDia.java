@@ -67,11 +67,17 @@ public class DiaDia {
 				this.aiuto();
 			else
 				System.out.println("Comando sconosciuto");
-			if (this.partita.vinta()) {
-				System.out.println("Hai vinto!");
-				return true;
-			} else
-				return false;
+			if(this.partita.isFinita()) {
+				
+				if (this.partita.vinta()) {
+					System.out.println("Hai vinto!");
+					return true;
+				}
+				else{
+					System.out.println("Hai perso!!");
+				};
+			}
+		return false;
 	}   
 
 	// implementazioni dei comandi dell'utente:
@@ -99,9 +105,9 @@ public class DiaDia {
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
 			int cfu = this.partita.getCfu();
-			this.partita.setCfu(cfu- 1);   
+			this.partita.setCfu(--cfu);   
 		}
-		System.out.println(partita.getStanzaCorrente().getDescrizione());
+		System.out.println(partita);
 	}
 
 	/**
