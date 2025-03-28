@@ -16,7 +16,7 @@ public class Attrezzo {
 
 	private String nome;
 	private int peso;
-	private String CELABBIAMOFATTA;
+	
 	
 
 	/**
