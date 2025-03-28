@@ -1,5 +1,6 @@
 package it.uniroma3.diadia;
 
+import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
@@ -15,27 +16,36 @@ public class Partita {
 
 	static final private int CFU_INIZIALI = 20;
 
+	private Labirinto labirinto;
 	private Stanza stanzaCorrente;
-	private Stanza stanzaVincente;
+	//private Stanza stanzaVincente;
 	private boolean finita;
-	private int cfu;
+	//private int cfu;
+	private Giocatore giocatore;
 	
 	public Partita(){
-		creaStanze();
+		this.labirinto = new Labirinto();
+		this.stanzaCorrente = labirinto.getStanzaIniziale();
+		//creaStanze();
 		this.finita = false;
-		this.cfu = CFU_INIZIALI;
+		this.giocatore = new Giocatore(); 
+		this.giocatore.setCfu(CFU_INIZIALI);
 	}
 
     /**
      * Crea tutte le stanze e le porte di collegamento
      */
+	
+	/*
     private void creaStanze() {
 
 		/* crea gli attrezzi */
+	/*
     	Attrezzo lanterna = new Attrezzo("lanterna",3);
 		Attrezzo osso = new Attrezzo("osso",1);
     	
 		/* crea stanze del labirinto */
+	/*
 		Stanza atrio = new Stanza("Atrio");
 		Stanza aulaN11 = new Stanza("Aula N11");
 		Stanza aulaN10 = new Stanza("Aula N10");
@@ -43,6 +53,7 @@ public class Partita {
 		Stanza biblioteca = new Stanza("Biblioteca");
 		
 		/* collega le stanze */
+	/*
 		atrio.impostaStanzaAdiacente("nord", biblioteca);
 		atrio.impostaStanzaAdiacente("est", aulaN11);
 		atrio.impostaStanzaAdiacente("sud", aulaN10);
@@ -57,6 +68,7 @@ public class Partita {
 		biblioteca.impostaStanzaAdiacente("sud", atrio);
 
         /* pone gli attrezzi nelle stanze */
+	/*
 		aulaN10.addAttrezzo(lanterna);
 		atrio.addAttrezzo(osso);
 
@@ -68,10 +80,14 @@ public class Partita {
 	public Stanza getStanzaVincente() {
 		return stanzaVincente;
 	}
-
+	
+	*/
+	
+	
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
 		this.stanzaCorrente = stanzaCorrente;
 	}
+	
 
 	public Stanza getStanzaCorrente() {
 		return this.stanzaCorrente;
@@ -82,7 +98,7 @@ public class Partita {
 	 * @return vero se partita vinta
 	 */
 	public boolean vinta() {
-		return this.getStanzaCorrente()== this.getStanzaVincente();
+		return this.getStanzaCorrente().equals(this.labirinto.getStanzaFinale());
 	}
 
 	/**
@@ -90,7 +106,7 @@ public class Partita {
 	 * @return vero se partita finita
 	 */
 	public boolean isFinita() {
-		return finita || vinta() || (cfu == 0);
+		return finita || vinta() || (this.giocatore.getCfu() == 0);
 	}
 
 	/**
@@ -100,7 +116,7 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
-
+/*
 	public int getCfu() {
 		return this.cfu;
 	}
@@ -111,5 +127,10 @@ public class Partita {
 	
 	public String toString() {
 	return this.getStanzaCorrente()+ "\nCfu: " + this.getCfu();
+	}
+	*/
+	
+	public Giocatore getGiocatore() {
+		return this.giocatore;
 	}
 }
