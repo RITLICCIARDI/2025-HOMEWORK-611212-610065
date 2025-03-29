@@ -23,7 +23,7 @@ public class Partita {
 	private Stanza stanzaCorrente;
 	//private Stanza stanzaVincente;
 	private boolean finita;
-	//private int cfu;
+	private int cfu;
 	private Giocatore giocatore;
 	
 	public Partita(){
@@ -119,7 +119,7 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
-/*
+
 	public int getCfu() {
 		return this.cfu;
 	}
@@ -131,7 +131,7 @@ public class Partita {
 	public String toString() {
 	return this.getStanzaCorrente()+ "\nCfu: " + this.getCfu();
 	}
-	*/
+	
 	
 	public Giocatore getGiocatore() {
 		return this.giocatore;
