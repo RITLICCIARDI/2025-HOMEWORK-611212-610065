@@ -48,7 +48,8 @@ public class DiaDia {
 		scannerDiLinee = new Scanner(System.in);		
 		do		
 			istruzione = scannerDiLinee.nextLine();
-		while (!processaIstruzione(istruzione)); //GIOCO CONTINUA FINCHE E' VERO QUANDO E' FALSO IL GIOCO FINISCE
+		while (!processaIstruzione(istruzione));//GIOCO CONTINUA FINCHE E' VERO QUANDO E' FALSO IL GIOCO FINISCE
+		scannerDiLinee.close();
 	}   
 
 
@@ -82,7 +83,10 @@ public class DiaDia {
 			System.out.println("CONGRATULAZIONI, HAI VINTO LA PARTITA!");
 			return true;
 		} 
-		else
+		else if(this.partita.getGiocatore().getCfu() <= 0) {
+			System.out.println("Hai esaurito i cfu!");
+			return true;
+		}
 			return false;
 
 	}   
@@ -111,11 +115,11 @@ public class DiaDia {
 			System.out.println("Direzione inesistente!");
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
-		}
 			int cfu = this.partita.getGiocatore().getCfu();
 			this.partita.getGiocatore().setCfu(--cfu);
-		
-		System.out.println(partita.getStanzaCorrente().getDescrizione());
+		}
+		System.out.println(this.partita.getStanzaCorrente().getDescrizione());
+		System.out.println("CFU rimanenti: " +this.partita.getGiocatore().getCfu());
 	}
 
 	
@@ -154,6 +158,8 @@ public class DiaDia {
 		}
 	}
 
+	
+	
 	/**
 	 * Comando "Fine".
 	 */

@@ -17,7 +17,7 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class Partita {
 
-	static final private int CFU_INIZIALI = 20;
+	static final private int CFU_INIZIALI = 3;
 
 	private Labirinto labirinto;
 	private Stanza stanzaCorrente;
@@ -119,19 +119,20 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
-/*
+
 	public int getCfu() {
-		return this.cfu;
+		return this.giocatore.getCfu();
 	}
 
 	public void setCfu(int cfu) {
-		this.cfu = cfu;		
+		this.giocatore.setCfu(cfu);;		
 	}	
+	
 	
 	public String toString() {
 	return this.getStanzaCorrente()+ "\nCfu: " + this.getCfu();
 	}
-	*/
+	
 	
 	public Giocatore getGiocatore() {
 		return this.giocatore;
