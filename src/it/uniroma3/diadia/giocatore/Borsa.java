@@ -43,7 +43,7 @@ public class Borsa {
 		peso += this.attrezzi[i].getPeso();
 
 		return peso;
-		}
+		} //
 		public boolean isEmpty() {
 		return this.numeroAttrezzi == 0;
 		}

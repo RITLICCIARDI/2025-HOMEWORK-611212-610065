@@ -3,6 +3,7 @@ package it.uniroma3.diadia;
 
 import java.util.Scanner;
 
+
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.ambienti.Stanza;
 
@@ -61,20 +62,26 @@ public class DiaDia {
 		if (comandoDaEseguire.getNome().equals("fine")) {
 			this.fine();
 			return true;
-		} else if (comandoDaEseguire.getNome().equals("vai"))
+		} else if (comandoDaEseguire.getNome().equals("vai")) {
 			this.vai(comandoDaEseguire.getParametro());
-		else if (comandoDaEseguire.getNome().equals("prendi"))
+		}
+		else if (comandoDaEseguire.getNome().equals("prendi")) {
 			this.prendi(comandoDaEseguire.getParametro());
-		else if (comandoDaEseguire.getNome().equals("posa"))
+		}
+		else if (comandoDaEseguire.getNome().equals("posa")) {
 			this.posa(comandoDaEseguire.getParametro());
-		else if (comandoDaEseguire.getNome().equals("aiuto"))
+		}
+		else if (comandoDaEseguire.getNome().equals("aiuto")) {
 			this.aiuto();
-		else
+		}
+		else {
 			System.out.println("Comando inserito non corretto!!!");
+		}
 		if (this.partita.vinta()) {
 			System.out.println("CONGRATULAZIONI, HAI VINTO LA PARTITA!");
 			return true;
-		} else
+		} 
+		else
 			return false;
 
 	}   
@@ -87,7 +94,7 @@ public class DiaDia {
 	private void aiuto() {
 		for(int i=0; i< elencoComandi.length; i++) 
 			System.out.print(elencoComandi[i]+" ");
-		System.out.println();
+		System.out.println(" ");
 	}
 
 	/**
@@ -100,13 +107,13 @@ public class DiaDia {
 		Stanza prossimaStanza = null; 
 		prossimaStanza = this.partita.getStanzaCorrente().getStanzaAdiacente(direzione);
 		if (prossimaStanza == null)
-			System.out.println("Direzione inesistente");
+			System.out.println("Direzione inesistente!");
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
 			int cfu = this.partita.getGiocatore().getCfu();
 			this.partita.getGiocatore().setCfu(--cfu);
 		}
-		System.out.println(partita);
+		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
 
 	
@@ -147,7 +154,7 @@ public class DiaDia {
 	 * Comando "Fine".
 	 */
 	private void fine() {
-		System.out.println("Grazie di aver giocato!");  // si desidera smettere
+		System.out.println("Grazie per aver giocato!");  // si desidera smettere
 	}
 
 	public static void main(String[] argc) {
