@@ -23,7 +23,7 @@ public class Partita {
 	private Stanza stanzaCorrente;
 	//private Stanza stanzaVincente;
 	private boolean finita;
-	//private int cfu;
+	private int cfu;
 	private Giocatore giocatore;
 	
 	public Partita(){

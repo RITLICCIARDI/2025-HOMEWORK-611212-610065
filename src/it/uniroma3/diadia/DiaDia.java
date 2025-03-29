@@ -32,7 +32,7 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 	
-	static final private String[] elencoComandi = {"vai", "aiuto", "fine"};
+	static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa"};
 
 	private Partita partita;
 
@@ -61,6 +61,8 @@ public class DiaDia {
 	private boolean processaIstruzione(String istruzione) {	//PROCESSA SINGOLA ISTRUZIONE MODELLATA DA QUESTA STRINGA
 		Comando comandoDaEseguire = new Comando(istruzione);
 
+		if(comandoDaEseguire.getNome()!=null)
+			
 		if (comandoDaEseguire.getNome().equals("fine")) {
 			this.fine();
 			return true;
@@ -79,9 +81,16 @@ public class DiaDia {
 		else {
 			System.out.println("Comando inserito non corretto!!!");
 		}
-		if (this.partita.vinta()) {
-			System.out.println("CONGRATULAZIONI, HAI VINTO LA PARTITA!");
-			return true;
+		if (this.partita.isFinita()) {
+			if(this.partita.vinta()) {
+					System.out.println("CONGRATULAZIONI, HAI VINTO LA PARTITA!");
+					return true;
+			}
+			else {
+				System.out.println("Hai perso...");
+				return false;
+			}
+				
 		} 
 		else if(this.partita.getGiocatore().getCfu() <= 0) {
 			System.out.println("Hai esaurito i cfu!");
