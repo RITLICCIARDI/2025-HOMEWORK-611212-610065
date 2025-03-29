@@ -52,9 +52,25 @@ public class Borsa {
 		}
 		public Attrezzo removeAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
-		// ---> TODO (implementare questo metodo) <---
+		for (int i = 0; i < this.numeroAttrezzi; i++) {
+	        if (this.attrezzi[i].getNome().equals(nomeAttrezzo)) {
+	            Attrezzo attrezzoRimosso = this.attrezzi[i];
+
+	            // Spostiamo gli attrezzi successivi per chiudere il buco nell'array
+	            for (int j = i; j < this.numeroAttrezzi - 1; j++) {
+	                this.attrezzi[j] = this.attrezzi[j + 1];
+	            }
+
+	            this.attrezzi[this.numeroAttrezzi - 1] = null; // Pulizia della posizione finale
+	            this.numeroAttrezzi--;
+
+	            return attrezzoRimosso;
+	        }
+	    }
+	
 		return a;
 		}
+		
 		public String toString() {
 		StringBuilder s = new StringBuilder();
 

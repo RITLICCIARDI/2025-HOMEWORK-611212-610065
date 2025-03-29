@@ -17,7 +17,7 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class Partita {
 
-	static final private int CFU_INIZIALI = 3;
+	static final private int CFU_INIZIALI = 20;
 
 	private Labirinto labirinto;
 	private Stanza stanzaCorrente;
