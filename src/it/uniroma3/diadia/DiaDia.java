@@ -79,7 +79,7 @@ public class DiaDia {
 			this.aiuto();
 		}
 		else {
-			System.out.println("Comando inserito non corretto!!!");
+			System.out.println("Comando inserito sconosciuto!!!");
 		}
 		if (this.partita.isFinita()) {
 			if(this.partita.vinta()) {
@@ -88,14 +88,14 @@ public class DiaDia {
 			}
 			else {
 				System.out.println("Hai perso...");
-				return false;
+				return true;
 			}
 				
 		} 
-		else if(this.partita.getGiocatore().getCfu() <= 0) {
+		/*else if(this.partita.getGiocatore().getCfu() == 0) {
 			System.out.println("Hai esaurito i cfu!");
 			return true;
-		}
+		}*/
 			return false;
 
 	}   
