@@ -4,6 +4,7 @@ package it.uniroma3.diadia;
 import java.util.Scanner;
 
 
+
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.ambienti.Stanza;
 
@@ -110,16 +111,19 @@ public class DiaDia {
 			System.out.println("Direzione inesistente!");
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
+		}
 			int cfu = this.partita.getGiocatore().getCfu();
 			this.partita.getGiocatore().setCfu(--cfu);
-		}
+		
 		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
 
 	
 	private void prendi(String nomeAttrezzo) {
-		if (nomeAttrezzo == null)
+		if (nomeAttrezzo == null) {
 			System.out.println("Quale attrezzo vuoi prendere?");
+		return;
+		}
 		else {
 			Attrezzo attrezzo = this.partita.getStanzaCorrente().getAttrezzo(nomeAttrezzo);
 			if (attrezzo == null)
