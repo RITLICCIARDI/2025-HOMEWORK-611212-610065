@@ -10,7 +10,7 @@ public class testLabirinto {
 		private final Labirinto l = new Labirinto();
 		private final Stanza si = new Stanza("Atrio");
 		private final Stanza sd = new Stanza("Stanza diversa");
-		private final Stanza sv = new Stanza("Bibilioteca");
+		//private final Stanza sv = new Stanza("Bibilioteca");
 		
 		@Test
 		public void getStanzaIniziale() {

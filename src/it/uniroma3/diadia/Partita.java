@@ -2,8 +2,6 @@ package it.uniroma3.diadia;
 
 import it.uniroma3.diadia.ambienti.Labirinto;
 
-
-
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.giocatore.Giocatore;
 //import it.uniroma3.diadia.attrezzi.Attrezzo;
@@ -22,7 +20,7 @@ public class Partita {
 
 	private Labirinto labirinto;
 	private Stanza stanzaCorrente;
-	//private Stanza stanzaVincente;
+	private Stanza stanzaVincente;
 	private boolean finita;
 	//private int cfu;
 	private Giocatore giocatore;
@@ -80,17 +78,14 @@ public class Partita {
         stanzaCorrente = atrio;  
 		stanzaVincente = biblioteca;
     }
-
+*/
+	
 	public Stanza getStanzaVincente() {
 		return stanzaVincente;
 	}
 	
-	*/
 	
 	
-	public void setStanzaCorrente(Stanza stanzaCorrente) {
-		this.stanzaCorrente = stanzaCorrente;
-	}
 	
 
 	public Stanza getStanzaCorrente() {
@@ -110,13 +105,21 @@ public class Partita {
 	 * @return vero se partita finita
 	 */
 	public boolean isFinita() {
-		return finita || vinta() || (this.giocatore.getCfu() == 0);
+		return finita || vinta() || this.giocatore.getCfu() == 0;
 	}
 
 	/**
 	 * Imposta la partita come finita
 	 *
 	 */
+	
+	public void setStanzaCorrente(Stanza stanza) {
+		this.stanzaCorrente = stanza;
+		if(stanza.getNome().equals("Stanza Finale")) {
+			this.finita = true;
+		}
+	}
+	
 	public void setFinita() {
 		this.finita = true;
 	}
