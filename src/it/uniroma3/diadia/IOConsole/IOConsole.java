@@ -1,4 +1,4 @@
-package it.uniroma3.diadia;
+package it.uniroma3.diadia.IOConsole;
 import java.util.Scanner;
 
 public class IOConsole {
@@ -6,9 +6,10 @@ public class IOConsole {
 		System.out.println(msg);
 	}
 	public String leggiRiga() {
+		@SuppressWarnings("resource")
 		Scanner scannerDiLinee = new Scanner(System.in);
 		String riga = scannerDiLinee.nextLine();
-		scannerDiLinee.close();
+		//scannerDiLinee.close();
 		return riga;
 	}
 }

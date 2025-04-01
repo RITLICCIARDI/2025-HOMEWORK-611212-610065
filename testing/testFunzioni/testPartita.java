@@ -3,6 +3,7 @@ package testFunzioni;
 import org.junit.jupiter.api.BeforeEach;
 
 
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -38,8 +39,8 @@ class testPartita {
 	@Test
 	public void testPartitaVinta() {
 		//simula vittoria della partita
-		Stanza stanzaVincente = new Stanza("Stanza Finale");
-		p.setStanzaCorrente(stanzaVincente);
+		Stanza stanzaFinale = new Stanza("Stanza Finale");
+		p.setStanzaCorrente(stanzaFinale);
 		assertTrue(p.isFinita());
 	}
 	
