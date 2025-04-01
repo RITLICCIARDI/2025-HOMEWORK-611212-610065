@@ -6,6 +6,7 @@ public class Giocatore {
 	private Borsa borsa;
 	
 	public Giocatore() {
+		this.cfu = 20;
 		this.borsa = new Borsa();
 	}
 	

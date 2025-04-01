@@ -1,41 +1,52 @@
 package testFunzioni;
-<<<<<<< Updated upstream
+
 import org.junit.jupiter.api.BeforeEach;
+
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.*;
+import it.uniroma3.diadia.giocatore.*;
 
 
 class testPartita {
 	
-	private Partita partita;
+	private Partita p;
+	private Labirinto l;
+	private Giocatore g;
 	
 	@BeforeEach
 	public void setUp() {
 		
-		partita = new Partita();
-		
+		//inizializzazione degli oggetti
+		l = new Labirinto();
+		p = new Partita();
+		g = p.getGiocatore();
 		
 	}
 	
 	@Test
 	public void testPartitaNonFinita() {
-		assertFalse(this.partita.isFinita());
-		this.partita.setFinita();
-		assertTrue(this.partita.isFinita());
+		//verifica che la partita non sia finita all'inizio
+		assertFalse(p.isFinita());
+		//this.partita.setFinita();
+		//assertTrue(this.partita.isFinita());
 	}
 	
 	@Test
 	public void testPartitaVinta() {
-		partita.setStanzaCorrente(partita.getStanzaVincente());
-		assertTrue(this.partita.vinta());
+		//simula vittoria della partita
+		Stanza stanzaVincente = new Stanza("Stanza Finale");
+		p.setStanzaCorrente(stanzaVincente);
+		assertTrue(p.isFinita());
 	}
 	
-	
-=======
-
-public class testPartita {
->>>>>>> Stashed changes
-
+	@Test
+	public void zeroCfuTest() {
+		//verifica che la partita finisca quando ci sono 0 cfu
+		g.setCfu(0);
+		assertTrue(p.isFinita());
+	}
 }

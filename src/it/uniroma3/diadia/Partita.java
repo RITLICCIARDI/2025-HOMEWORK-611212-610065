@@ -3,9 +3,10 @@ package it.uniroma3.diadia;
 import it.uniroma3.diadia.ambienti.Labirinto;
 
 
+
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.giocatore.Giocatore;
-import it.uniroma3.diadia.attrezzi.Attrezzo;
+//import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 /**
  * Questa classe modella una partita del gioco
@@ -23,7 +24,7 @@ public class Partita {
 	private Stanza stanzaCorrente;
 	//private Stanza stanzaVincente;
 	private boolean finita;
-	private int cfu;
+	//private int cfu;
 	private Giocatore giocatore;
 	
 	public Partita(){
