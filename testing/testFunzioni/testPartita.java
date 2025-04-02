@@ -15,14 +15,14 @@ import it.uniroma3.diadia.giocatore.*;
 class testPartita {
 	
 	private Partita p;
-	private Labirinto l;
+	//private Labirinto l;
 	private Giocatore g;
 	
 	@BeforeEach
 	public void setUp() {
 		
 		//inizializzazione degli oggetti
-		l = new Labirinto();
+		//l = new Labirinto();
 		p = new Partita();
 		g = p.getGiocatore();
 		
