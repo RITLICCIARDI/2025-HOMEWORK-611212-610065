@@ -1,6 +1,5 @@
 package it.uniroma3.diadia;
 
-
 //import it.uniroma3.diadia.IOConsole.IOConsole;
 import java.util.Scanner;
 
@@ -20,8 +19,24 @@ public class Comando {
 
     private String nome;
     private String parametro;
+   // private IOConsole io;
+    
 
     public Comando(String istruzione) {
+    	
+    	/*istruzione = io.leggiRiga();
+    	
+    	String[] parola = istruzione.split("//s+");
+    	
+    	if(parola.length > 0) {
+    		this.nome = parola[0];
+    	}
+    	
+    	if(parola.length > 1) {
+    		this.parametro = parola[1];
+    	}
+    	*/
+    	
 		Scanner scannerDiParole = new Scanner(istruzione);
     	
     	
