@@ -16,7 +16,7 @@ class testStanza {
 	private Attrezzo lanterna;
 	
 	@BeforeEach
-	
+	//ao
 	public void setUp() {
 		
 		atrio = new Stanza("atrio");

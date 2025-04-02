@@ -10,7 +10,7 @@ import org.junit.Test;
 public class testGiocatore {
 
 		Giocatore g = new Giocatore();
-		
+		//qo
 		@Test
 		//assicurarsi che quando viene creato un giocatore, i suoi CFU sono inizializzati correttamente
 		public void testGetCfu() {
