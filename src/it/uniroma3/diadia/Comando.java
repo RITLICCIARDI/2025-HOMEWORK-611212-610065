@@ -1,7 +1,7 @@
 package it.uniroma3.diadia;
 
 
-
+//import it.uniroma3.diadia.IOConsole.IOConsole;
 import java.util.Scanner;
 
 /**
@@ -23,15 +23,19 @@ public class Comando {
 
     public Comando(String istruzione) {
 		Scanner scannerDiParole = new Scanner(istruzione);
+    	
+    	
 
 		// prima parola: nome del comando
-		if (scannerDiParole.hasNext())
+		if (scannerDiParole.hasNext())     //
 			this.nome = scannerDiParole.next(); 
 
 		// seconda parola: eventuale parametro
 		if (scannerDiParole.hasNext())
 			this.parametro = scannerDiParole.next();
+
     }
+    
 
     public String getNome() {
         return this.nome;
