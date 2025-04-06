@@ -19,12 +19,16 @@ public class Comando {
 
     private String nome;
     private String parametro;
-   // private IOConsole io;
+    //private IOConsole io;
     
 
-    public Comando(String istruzione) {
+    //@SuppressWarnings("resource")
+	public Comando(String istruzione) {
     	
-    	/*istruzione = io.leggiRiga();
+    	/*if(this.io!=null)
+    	
+    	
+    	istruzione = io.leggiRiga();
     	
     	String[] parola = istruzione.split("//s+");
     	
@@ -36,6 +40,7 @@ public class Comando {
     		this.parametro = parola[1];
     	}
     	*/
+    	
     	
 		Scanner scannerDiParole = new Scanner(istruzione);
     	
