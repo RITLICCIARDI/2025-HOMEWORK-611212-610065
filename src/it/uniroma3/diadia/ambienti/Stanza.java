@@ -15,6 +15,26 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class Stanza {
 	
+	public Stanza[] getStanzeAdiacenti() {
+		return stanzeAdiacenti;
+	}
+
+	public void setStanzeAdiacenti(Stanza[] stanzeAdiacenti) {
+		this.stanzeAdiacenti = stanzeAdiacenti;
+	}
+
+	public int getNumeroStanzeAdiacenti() {
+		return numeroStanzeAdiacenti;
+	}
+
+	public void setNumeroStanzeAdiacenti(int numeroStanzeAdiacenti) {
+		this.numeroStanzeAdiacenti = numeroStanzeAdiacenti;
+	}
+
+	public void setDirezioni(String[] direzioni) {
+		this.direzioni = direzioni;
+	}
+
 	static final private int NUMERO_MASSIMO_DIREZIONI = 4;
 	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
 	
@@ -41,6 +61,18 @@ public class Stanza {
         this.attrezzi = new Attrezzo[NUMERO_MASSIMO_ATTREZZI];
     }
 
+   
+    // Restituisce il numero massimo di attrezzi che la stanza può contenere
+    public int getNumeroAttrezziPossibili() {
+        return NUMERO_MASSIMO_ATTREZZI;
+    }
+
+    // Restituisce il numero effettivo di attrezzi presenti nella stanza
+    public int getNumeroAttrezzi() {
+        return this.numeroAttrezzi;
+    }
+    
+    
     /**
      * Imposta una stanza adiacente.
      *
@@ -173,11 +205,13 @@ public class Stanza {
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
 		for(int i=0; i<this.numeroAttrezzi; i++) {
 			if(this.attrezzi[i] == attrezzo) {
-				this.attrezzi[i] = this.attrezzi[this.numeroAttrezzi - 1];
-				this.attrezzi[this.numeroAttrezzi-1] = null;
-				 //DA CONTINUARE
-				this.numeroAttrezzi--;
-				return true;
+				// Sposta gli attrezzi a sinistra per eliminare quello corrente
+                for (int j = i; j < this.numeroAttrezzi - 1; j++) {
+                    this.attrezzi[j] = this.attrezzi[j + 1];
+                }
+                this.attrezzi[this.numeroAttrezzi - 1] = null; // Elimina l'ultimo elemento
+                this.numeroAttrezzi--; // Decrementa il numero di attrezzi
+                return true;
 			}
 		}
 		return false;

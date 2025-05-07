@@ -3,6 +3,7 @@ package testFunzioni;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +17,7 @@ class testStanza {
 	private Attrezzo lanterna;
 	
 	@BeforeEach
-	//ao
+	
 	public void setUp() {
 		
 		atrio = new Stanza("atrio");

@@ -7,6 +7,7 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 public class Labirinto {
 	private Stanza stanzaIniziale;
 	private Stanza stanzaFinale;
+	private Stanza stanzaCorrente;
 	
 	public Labirinto() {
 		creaStanze();
@@ -45,6 +46,7 @@ public class Labirinto {
 		// il gioco comincia nell'atrio
         this.stanzaIniziale = atrio;  
 		this.stanzaFinale = biblioteca;
+		this.stanzaCorrente = atrio;
 
 	}
 		public Stanza getStanzaIniziale() {
@@ -55,4 +57,13 @@ public class Labirinto {
 			return this.stanzaFinale;
 		}
 	
+		 // Metodo per ottenere la stanza corrente
+	    public Stanza getStanzaCorrente() {
+	        return this.stanzaCorrente;
+	    }
+
+	    // Metodo per impostare la stanza corrente
+	    public void setStanzaCorrente(Stanza stanza) {
+	        this.stanzaCorrente = stanza;
+	    }
 }

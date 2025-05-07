@@ -47,7 +47,12 @@ public class Borsa {
 		peso += this.attrezzi[i].getPeso();
 
 		return peso;
-		} //
+		} 
+	 public int getPesoRimanente(Attrezzo attrezzo) {
+	        int pesoTotale = this.getPeso() + attrezzo.getPeso();
+	        return this.pesoMax - pesoTotale;
+	    }
+	
 		public boolean isEmpty() {
 		return this.numeroAttrezzi == 0;
 		}

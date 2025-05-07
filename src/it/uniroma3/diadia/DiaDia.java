@@ -1,11 +1,14 @@
 package it.uniroma3.diadia;
 
-import it.uniroma3.diadia.IOConsole.IOConsole;
 
 //import it.uniroma3.diadia.giocatore.Giocatore;
+
 //import it.uniroma3.diadia.giocatore.Borsa;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.comandi.Comando;
 import it.uniroma3.diadia.ambienti.Stanza;
+import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
+import java.util.Scanner;
 
 /**
  * Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
@@ -34,16 +37,16 @@ public class DiaDia {
 	static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa", "borsa"};
 
 	private Partita partita;
-	private IOConsole io;
+	private IO io;
 
-	public DiaDia() {
+	public DiaDia(IO console) {
 		this.partita = new Partita();
-		this.io = new IOConsole();
+		this.io = console;
 	}
 
 	public void gioca() {
 		String istruzione; 
-
+		Scanner scannerDiLinee;
 		io.mostraMessaggio(MESSAGGIO_BENVENUTO);		
 		do		
 			istruzione = io.leggiRiga();
@@ -56,50 +59,20 @@ public class DiaDia {
 	 *
 	 * @return true se l'istruzione e' eseguita e il gioco continua, false altrimenti
 	 */
-	private boolean processaIstruzione(String istruzione) {	//PROCESSA SINGOLA ISTRUZIONE MODELLATA DA QUESTA STRINGA
-		Comando comandoDaEseguire = new Comando(istruzione);
+	
+	private boolean processaIstruzione(String istruzione) {
+		Comando comandoDaEseguire;
+		FabbricaDiComandiFisarmonica factory = new FabbricaDiComandiFisarmonica(this.io);
+		comandoDaEseguire = factory.costruisciComando(istruzione);
+		comandoDaEseguire.esegui(this.partita);
+		if (this.partita.vinta())
+		io.mostraMessaggio("Hai vinto!");
+		if (!this.partita.giocatoreIsVivo())
+			io.mostraMessaggio("Hai esaurito i CFU...");
+		return this.partita.isFinita();
+		}
 
-		if(comandoDaEseguire.getNome()!=null)
-			
-		if (comandoDaEseguire.getNome().equals("fine")) {
-			this.fine();
-			return true;
-		} else if (comandoDaEseguire.getNome().equals("vai")) {
-			this.vai(comandoDaEseguire.getParametro());
-		}
-		else if (comandoDaEseguire.getNome().equals("prendi")) {
-			this.prendi(comandoDaEseguire.getParametro());
-		}
-		else if (comandoDaEseguire.getNome().equals("posa")) {
-			this.posa(comandoDaEseguire.getParametro());
-		}
-		else if (comandoDaEseguire.getNome().equals("aiuto")) {
-			this.aiuto();
-		}
-		else if(comandoDaEseguire.getNome().equals("borsa")) {
-			 io.mostraMessaggio(""+this.partita.getGiocatore().getBorsa());
-		}
-		else {
-			io.mostraMessaggio("Comando inserito sconosciuto!!!");
-		}
-		if (this.partita.isFinita()) {
-			if(this.partita.vinta()) {
-					io.mostraMessaggio("CONGRATULAZIONI, HAI VINTO LA PARTITA!");
-					return true;
-			}
-			else {
-				io.mostraMessaggio("Hai perso...");
-				return true;
-			}
-				
-		} 
-		/*else if(this.partita.getGiocatore().getCfu() == 0) {
-			System.out.println("Hai esaurito i cfu!");
-			return true;
-		}*/
-			return false;
 
-	}   
 
 	// implementazioni dei comandi dell'utente:
 
@@ -178,7 +151,8 @@ public class DiaDia {
 	}
 
 	public static void main(String[] argc) {
-		DiaDia gioco = new DiaDia();
+		IO io = new IOConsole();
+		DiaDia gioco = new DiaDia(io);
 		gioco.gioca();
 	}
 }
