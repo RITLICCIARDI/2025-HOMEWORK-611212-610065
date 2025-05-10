@@ -20,18 +20,24 @@ public class ComandoPrendi implements Comando{
         this.nomeAttrezzo = ""; // Imposta un valore di default
     }
 	
-	@Override
-	public void esegui(Partita partita) {
-		Attrezzo a = partita.getLabirinto().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
-		if(partita.getGiocatore().getBorsa().getPesoRimanente(a)>=0) {
-			partita.getGiocatore().getBorsa().addAttrezzo(a);
-			partita.getLabirinto().getStanzaCorrente().removeAttrezzo(a);
-			io.mostraMessaggio("Hai preso l'attrezzo: " + nomeAttrezzo);
-		} 
-		else {
-			io.mostraMessaggio("Attrezzo troppo pesante per entrare nella borsa!");
-		}
-	}
+    @Override
+    public void esegui(Partita partita) {
+        Attrezzo a = partita.getLabirinto().getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+
+        if (a == null) {
+            io.mostraMessaggio("Attrezzo inesistente nella stanza.");
+            return;
+        }
+
+        if (partita.getGiocatore().getBorsa().getPesoRimanente(a) >= 0) {
+            partita.getGiocatore().getBorsa().addAttrezzo(a);
+            partita.getLabirinto().getStanzaCorrente().removeAttrezzo(a);
+            io.mostraMessaggio("Hai preso l'attrezzo: " + nomeAttrezzo);
+        } 
+        else {
+            io.mostraMessaggio("Attrezzo troppo pesante per entrare nella borsa!");
+        }
+    }
 
 	@Override
 	public void setParametro(String parametro) {
