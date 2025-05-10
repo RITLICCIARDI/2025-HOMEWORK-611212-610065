@@ -21,19 +21,23 @@ public class ComandoPosa implements Comando{
     }
 	
     
-	@Override
-	public void esegui(Partita partita) {
-		Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
+    @Override
+    public void esegui(Partita partita) {
+        Attrezzo a = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
 
-		if(partita.getStanzaCorrente().getNumeroAttrezziPossibili()>partita.getStanzaCorrente().getNumeroAttrezzi()) {
-			partita.getStanzaCorrente().addAttrezzo(a);
-			partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-			io.mostraMessaggio("Hai posato l'attrezzo " + nomeAttrezzo + " nella stanza.");
-		}
-		else {
-			io.mostraMessaggio("Non c'e' spazio nella stanza per poter inserire questo attrezzo!");
-		}
-	}
+        if (a == null) {
+            io.mostraMessaggio("Non hai questo attrezzo nello zaino.");
+            return;
+        }
+
+        if (partita.getStanzaCorrente().getNumeroAttrezziPossibili() > partita.getStanzaCorrente().getNumeroAttrezzi()) {
+            partita.getStanzaCorrente().addAttrezzo(a);
+            partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
+            io.mostraMessaggio("Hai posato l'attrezzo " + nomeAttrezzo + " nella stanza.");
+        } else {
+            io.mostraMessaggio("Non c'è spazio nella stanza per poter inserire questo attrezzo!");
+        }
+    }
 
 	@Override
 	public void setParametro(String parametro) {
