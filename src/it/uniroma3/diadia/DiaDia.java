@@ -46,7 +46,7 @@ public class DiaDia {
 
 	public void gioca() {
 		String istruzione; 
-		Scanner scannerDiLinee;
+		//Scanner scannerDiLinee;
 		io.mostraMessaggio(MESSAGGIO_BENVENUTO);		
 		do		
 			istruzione = io.leggiRiga();
